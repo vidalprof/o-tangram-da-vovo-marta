@@ -208,7 +208,11 @@ h1{font-size:34px;font-weight:700;color:#fff;margin:6px 0 2px;text-align:center;
 .banca.temsel .tpeca.sel{opacity:1;-webkit-filter:none;filter:none}
 .banca .tpeca,.banca.temsel .tpeca{-webkit-transition:opacity .2s,-webkit-filter .2s,-webkit-transform .22s ease-out;transition:opacity .2s,filter .2s,transform .22s ease-out}
 .tpeca.voa{position:fixed;z-index:40;pointer-events:none;opacity:.95}
-.tpeca.posta{position:absolute;cursor:default}
+.tpeca.posta{position:absolute;cursor:default;z-index:3}
+/* ⚠️ a vaga VAZIA fica ACIMA das pecas ja postas, para o caso de duas vagas na
+   mesma posicao (os dois triangulos da copa): a 2a continua clicavel. A vaga
+   preenchida sai da frente por `visibility:hidden` no JS. */
+.tvg{z-index:6}
 .tferr{display:-webkit-box;display:-webkit-flex;display:flex;gap:10px;-webkit-box-pack:center;justify-content:center;margin-top:10px}
 .bgira{background:-webkit-linear-gradient(top,#ffd95e,var(--sol));background:linear-gradient(#ffd95e,var(--sol));
   color:#5a4200;border:0;border-radius:999px;padding:12px 20px;font-family:inherit;font-weight:800;font-size:16px;cursor:pointer;
@@ -222,14 +226,28 @@ h1{font-size:34px;font-weight:700;color:#fff;margin:6px 0 2px;text-align:center;
    com a seta que curva — o desenho ja diz o que ele faz, sem ler.
    ⚠️ nada de `transform` na animacao dele? aqui pode: o botao nao gira, quem
    gira e a peca. Mas a peca continua proibida (a animacao atropela o giro).  */
-.gflut{position:fixed;z-index:45;width:48px;height:48px;border-radius:999px;border:0;padding:0;cursor:pointer;
-  background:-webkit-linear-gradient(top,#ffd95e,var(--sol));background:linear-gradient(#ffd95e,var(--sol));
-  -webkit-box-shadow:0 4px 0 #c99a12,0 6px 16px rgba(0,0,0,.3);box-shadow:0 4px 0 #c99a12,0 6px 16px rgba(0,0,0,.3);
-  -webkit-animation:gfnasce .3s ease-out;animation:gfnasce .3s ease-out}
-.gflut svg{display:block;width:30px;height:30px;margin:9px auto}
-.gflut:active{-webkit-transform:translateY(3px);transform:translateY(3px);-webkit-box-shadow:0 1px 0 #c99a12;box-shadow:0 1px 0 #c99a12}
-@-webkit-keyframes gfnasce{0%{-webkit-transform:scale(.35);opacity:0}70%{-webkit-transform:scale(1.12)}100%{-webkit-transform:scale(1);opacity:1}}
-@keyframes gfnasce{0%{transform:scale(.35);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+/* ⚠️ LICAO PAGA (ago/2026, o Marcos jogando): o botao de girar SEGUIA a peca
+   escolhida (colado nela). Parecia bom, mas ao pular de peca em peca ele caia
+   EM CIMA de outra peca e a crianca clicava nela sem querer. Ele pediu, com
+   todas as letras: "seria legal que ele nao saisse do lugar, mais profissional".
+   Agora o girar e um botao FIXO no rodape, redondo e moderno: sempre no mesmo
+   lugar, aparece quando ha peca na mao, e NUNCA sobre uma peca. */
+/* ⚠️ LICAO PAGA (ago/2026): este botao era `position:fixed` — e elemento fixed
+   tem `offsetParent` NULL. O auditor-jogador filtra alvos por `offsetParent!==
+   null` (para nao clicar em botao escondido), entao ele NAO ENXERGAVA o girar:
+   colocava a 1a peca e empacava nas que precisam girar ("PRESO na fase 1").
+   `position:absolute` (com coordenada de PAGINA) tem offsetParent = body: o
+   jogador ve, e a crianca tambem. Regra: controle que o jogador precisa tocar
+   nunca e `position:fixed`. */
+.gbtn{position:absolute;z-index:46;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:999px;border:0;padding:0;cursor:pointer;
+  background:-webkit-linear-gradient(top,#ffe487,var(--sol));background:linear-gradient(#ffe487,var(--sol));
+  -webkit-box-shadow:0 3px 0 #c99a12,0 4px 14px rgba(0,0,0,.4);box-shadow:0 3px 0 #c99a12,0 4px 14px rgba(0,0,0,.4);
+  -webkit-animation:gfnasce .25s ease-out;animation:gfnasce .25s ease-out}
+.gbtn svg{display:block;width:28px;height:28px;margin:9px auto}
+.gbtn:active{-webkit-transform:translateY(2px);transform:translateY(2px)}
+.gbtn.escondido{display:none}
+@-webkit-keyframes gfnasce{0%{-webkit-transform:scale(.4);opacity:0}70%{-webkit-transform:scale(1.12)}100%{-webkit-transform:scale(1);opacity:1}}
+@keyframes gfnasce{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 /* ⭐ ACABAMENTO — regra 4: O DESTINO ACENDE TAMBEM NO TOQUE. A vaga so acendia
    quando a peca passava por cima ARRASTANDO; quem joga tocando (a maioria, no
    PC da escola) escolhia a peca e a mesa nao respondia nada.
@@ -1405,14 +1423,16 @@ function telaJogo(){
   })(ordem[i]);}
   cen.appendChild(banca);
   var ferr=el("div","tferr");
-  tgira=el("button","bgira","Girar a pe&#231;a");
-  tgira.onclick=function(){ if(!tsel) { mostraDica("Toque numa pe&#231;a primeiro."); return; }
-    arma(); tsel.__ang=normalG(tsel.__ang+45); giraPeca(tsel); sTap();
-    setTimeout(function(){ acendeVagas(); posGiroFlut(); marcaQA(); },250); };
+  /* ⚠️ LICAO PAGA (ago/2026, o Marcos jogando): o botao "Girar a pe&#231;a" do rodape
+     ficou REDUNDANTE depois que o giro passou a nascer COLADO na pe&#231;a escolhida
+     (o `gflut`). Dois bot&#245;es de girar confundem. Fica so o flutuante; o rodape
+     guarda apenas o "Virar do outro lado" (o espelhar do paralelogramo, que o
+     flutuante nao faz). */
+  tgira=null;
   tesp=el("button","bgira escondido","Virar do outro lado");
   tesp.onclick=function(){ if(!tsel) return; arma(); tsel.__esp=tsel.__esp?0:1; giraPeca(tsel); sTap();
     setTimeout(function(){ acendeVagas(); posGiroFlut(); marcaQA(); },250); };
-  ferr.appendChild(tgira); ferr.appendChild(tesp);
+  ferr.appendChild(tesp);
   cen.appendChild(ferr);
   cen.appendChild(el("div","hint","Toque na pe&#231;a e depois no lugar dela — ou arraste."));
   t.appendChild(cen); app.appendChild(t);
@@ -1442,7 +1462,7 @@ function marcaQA(){
   var v=vagas(), p=document.getElementsByClassName("tpeca"), z, k;
   for(z=0;z<p.length;z++) p[z].removeAttribute("data-qa");
   for(z=0;z<v.length;z++) v[z].removeAttribute("data-qa");
-  if(tgira) tgira.removeAttribute("data-qa");
+  if(tflut) tflut.removeAttribute("data-qa");
   if(tesp) tesp.removeAttribute("data-qa");
 
   if(tsel && tsel.className.indexOf("posta")<0){
@@ -1464,7 +1484,8 @@ function marcaQA(){
       }
       if(!so){ tesp.setAttribute("data-qa","1"); return; }
     }
-    if(tgira) tgira.setAttribute("data-qa","1");
+    /* precisa girar: o alvo agora e o botao FLUTUANTE (o do rodape saiu) */
+    if(tflut) tflut.setAttribute("data-qa","1");
     return;
   }
 
@@ -1496,28 +1517,31 @@ var SETA_GIRO="<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M12.5 4.2V1.
 var MAO_DEMO="<svg viewBox='0 0 32 40' aria-hidden='true'><path d='M13 2c1.7 0 3 1.3 3 3v14h1.5v-4c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5v4H24v-2.5c0-1.4 1.1-2.5 2.5-2.5S29 15.1 29 16.5V27c0 6-4.4 11-10.5 11-5.5 0-8.2-2.6-11.1-7.6L4 25.4c-.8-1.3-.4-3 .9-3.8 1.2-.7 2.8-.4 3.6.8L10 24.6V5c0-1.7 1.3-3 3-3z' fill='#fffdf6' stroke='#3a2c18' stroke-width='1.9' stroke-linejoin='round'/></svg>";
 var tflut=null, _demoFeita=0;
 
+/* ⭐ O BOTAO DE GIRAR FICA NA PECA (como no rachacuca), centralizado nela.
+   Pedido do Marcos: "tem que ser na peca mesmo". O que dava clique errado antes
+   era ele no CANTO, invadindo a peca vizinha. No CENTRO da peca escolhida ele
+   nao sobra para fora dela — e, como girar e em torno do centro, o botao NAO
+   SAI DO LUGAR ao girar. */
 function tiraGiroFlut(){ if(tflut&&tflut.parentNode) tflut.parentNode.removeChild(tflut); tflut=null; }
 function posGiroFlut(){
   if(!tflut||!tsel) return;
   var r=tsel.getBoundingClientRect();
-  var x=r.right-8, y=r.top-16;
-  if(x>window.innerWidth-56) x=window.innerWidth-56;
-  if(x<4) x=4;
-  if(y<4) y=4;
-  if(y>window.innerHeight-56) y=window.innerHeight-56;
-  tflut.style.left=x+"px"; tflut.style.top=y+"px";
+  /* coordenada de PAGINA (o botao e position:absolute): soma o scroll, senao
+     ele desliza quando a tela rola. */
+  var sx=window.pageXOffset||document.documentElement.scrollLeft||0;
+  var sy=window.pageYOffset||document.documentElement.scrollTop||0;
+  tflut.style.left=(r.left+sx+r.width/2)+"px";
+  tflut.style.top=(r.top+sy+r.height/2)+"px";
 }
 function poeGiroFlut(){
   tiraGiroFlut();
   if(!tsel||tsel.className.indexOf("posta")>=0) return;
-  tflut=el("button","gflut",SETA_GIRO);
+  tflut=el("button","gbtn",SETA_GIRO);
   tflut.setAttribute("aria-label","Girar a peça");
   tflut.onclick=function(ev){
     if(ev&&ev.stopPropagation) ev.stopPropagation();
     if(!tsel) return;
     arma(); tsel.__ang=normalG(tsel.__ang+45); giraPeca(tsel); sTap();
-    /* a peca anda .22s ate o angulo novo: reposiciona DEPOIS, senao o botao
-       fica parado num canto que a peca ja deixou. */
     setTimeout(function(){ acendeVagas(); posGiroFlut(); marcaQA(); },250);
   };
   document.body.appendChild(tflut);
@@ -1650,7 +1674,14 @@ function larga(p,x,y){
 function encaixa(p,alvo){
   var fig=FIGURAS[figI];
   if(serveNa({f:p.__f,ang:p.__ang,esp:p.__esp}, alvo.__v)){
-    alvo.__cheia=1; alvo.className="tvg";
+    alvo.__cheia=1;
+    /* ⚠️ LICAO PAGA (ago/2026, o Marcos jogando a fase 1): duas vagas na MESMA
+       posicao (os dois triangulos grandes que formam a copa). Ao encaixar a
+       primeira, a peca posta cobria a vaga da segunda e ela sumia — "falta uma
+       peca", sem lugar visivel para a ultima. Conserto: a vaga preenchida SAI da
+       frente (visibility:hidden) e as vagas vazias ficam SEMPRE clicaveis acima
+       das pecas postas (z-index no CSS abaixo). Assim a 2a vaga irma continua la. */
+    alvo.className="tvg"; alvo.style.visibility="hidden";
     var d=FORMA[p.__f];
     p.className="tpeca posta";
     p.style.width=(d.w*U)+"px"; p.style.height=(d.h*U)+"px";
