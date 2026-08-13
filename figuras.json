@@ -1,0 +1,895 @@
+[
+ {
+  "id": "casaj",
+  "nome": "A CASA E O JARDIM",
+  "ensina": "As grandes primeiro; as pequenas fecham.",
+  "pecas": 5,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "torre",
+  "nome": "A TORRE",
+  "ensina": "Empilhar: cada pe&#231;a segura a de cima.",
+  "pecas": 5,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "peixe",
+  "nome": "O PEIXE",
+  "ensina": "Dois meio-quadrados fazem um quadrado.",
+  "pecas": 5,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 0.6,
+    "ang": 270,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "foguete",
+  "nome": "O FOGUETE",
+  "ensina": "Olhe o contorno antes de pegar a pe&#231;a.",
+  "pecas": 6,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 1.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 1.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 1.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "casa2",
+  "nome": "A CASA GRANDE",
+  "ensina": "O paralelogramo tem lado direito e lado esquerdo.",
+  "pecas": 6,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "par",
+    "x": 2.6,
+    "y": 2.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "barco6",
+  "nome": "O BARCO",
+  "ensina": "A vela grande e o casco embaixo.",
+  "pecas": 6,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 2.6,
+    "ang": 180,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "gato7",
+  "nome": "O GATO",
+  "ensina": "Os dois tri&#226;ngulos pequenos viram as orelhas.",
+  "pecas": 7,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 0.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 1.6,
+    "y": 0.6,
+    "ang": 180,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "par",
+    "x": 2.6,
+    "y": 2.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "bote",
+  "nome": "O BOTE",
+  "ensina": "O tri&#226;ngulo grande virado vira o casco.",
+  "pecas": 5,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 0.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 1.6,
+    "y": 0.6,
+    "ang": 180,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 3.893,
+    "ang": 45,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "vela2",
+  "nome": "O VELEIRO",
+  "ensina": "Duas velas: uma grande e uma m&#233;dia.",
+  "pecas": 6,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 0.6,
+    "ang": 180,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "arvore",
+  "nome": "A &#193;RVORE",
+  "ensina": "O tronco &#233; o quadrado; a copa, os tri&#226;ngulos.",
+  "pecas": 5,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 180,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "chave",
+  "nome": "A CHAVE",
+  "ensina": "Pe&#231;a pequena no lugar certo faz diferen&#231;a.",
+  "pecas": 5,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 2.6,
+    "ang": 180,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 0.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "lanterna",
+  "nome": "A LANTERNA",
+  "ensina": "Empilhar exige olhar de baixo para cima.",
+  "pecas": 6,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 4.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "pipa",
+  "nome": "A PIPA",
+  "ensina": "O paralelogramo vira a rabiola.",
+  "pecas": 5,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "par",
+    "x": 2.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 1
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "casaJ2",
+  "nome": "A CASA E A CERCA",
+  "ensina": "A cerca &#233; feita de pe&#231;as pequenas.",
+  "pecas": 7,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 2.6,
+    "ang": 180,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 180,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "foguete2",
+  "nome": "O FOGUETE GRANDE",
+  "ensina": "A &#250;ltima antes do desafio: use tudo.",
+  "pecas": 7,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 4.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 3.6,
+    "ang": 270,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "desafio",
+  "nome": "O DESAFIO DA VOV&#211;",
+  "ensina": "Tudo o que voc&#234; aprendeu, de uma vez.",
+  "pecas": 7,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 1.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 1.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 1.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "par",
+    "x": 3.6,
+    "y": 2.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ },
+ {
+  "id": "caixa7",
+  "nome": "A CAIXA CHEIA",
+  "ensina": "As sete pe&#231;as voltam para a caixa da vov&#243;.",
+  "pecas": 7,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 2.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "par",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 1
+   }
+  ]
+ },
+ {
+  "id": "vovo",
+  "nome": "A VOV&#211; MARTA",
+  "ensina": "A &#250;ltima: use tudo o que a caixa tem.",
+  "pecas": 7,
+  "vagas": [
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 270,
+    "esp": 0
+   },
+   {
+    "f": "gra",
+    "x": 0.6,
+    "y": 1.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "med",
+    "x": 0.893,
+    "y": 0.893,
+    "ang": 45,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 0.6,
+    "y": 3.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "peq",
+    "x": 1.6,
+    "y": 3.6,
+    "ang": 90,
+    "esp": 0
+   },
+   {
+    "f": "quad",
+    "x": 2.6,
+    "y": 0.6,
+    "ang": 0,
+    "esp": 0
+   },
+   {
+    "f": "par",
+    "x": 2.6,
+    "y": 2.6,
+    "ang": 0,
+    "esp": 0
+   }
+  ]
+ }
+]
