@@ -1266,7 +1266,14 @@ function normalG(a){ return ((a%360)+360)%360; }
 function serveNa(p,v){
   if(p.f!==v.f) return false;
   var m=GIRO_IGUAL[p.f];
-  if(normalG(p.ang)%m!==normalG(v.ang)%m) return false;
+  /* ⚠️⚠️ O DEFEITO RAIZ (ago/2026, o Marcos: "o quadrado nao vai no quadrado, as
+     pecas nao encaixam"). As vagas SEM campo `ang` (o quadrado em quase toda
+     figura, e varios triangulos) tinham `v.ang===undefined`. `normalG(undefined)`
+     devolve NaN, e `x !== NaN` e SEMPRE verdadeiro — entao a peca NUNCA servia
+     naquela vaga, e a "gire para encaixar" pipocava sem fim. Faltava o `||0`
+     (que ja existia no angulo da PECA, mas nao aqui na VAGA). Uma peca sem angulo
+     mora no angulo 0. */
+  if(normalG(p.ang||0)%m!==normalG(v.ang||0)%m) return false;
   if(p.f==="par" && (p.esp?1:0)!==(v.esp?1:0)) return false;
   return true;
 }
@@ -1387,7 +1394,19 @@ function telaJogo(){
     var p=el("div","tpeca",svgPeca(v.f,CORF[v.f]));
     var d=FORMA[v.f];
     p.style.width=(d.w*U)+"px"; p.style.height=(d.h*U)+"px";
-    p.__f=v.f; p.__ang=normalG((v.ang||0)+(1+Math.floor(Math.random()*3))*90); p.__esp=v.esp?0:0;
+    p.__f=v.f;
+    /* ⚠️ LICAO PAGA (ago/2026, o Marcos: "o quadrado nao vai no quadrado, as pecas
+       nao encaixam, aparece mensagem do nada"). Dois defeitos de rotacao:
+       1) o giro so gira +45 num sentido; comecar a peca a 90/180/270 do alvo
+          exigia ATE 6 toques para alinhar um triangulo — a crianca desistia e a
+          "gire para encaixar" pipocava. Agora comeca a 225/270/315 = 1 a 3 toques.
+       2) o QUADRADO e sempre ang 0 e simetrico: girar so estraga (vira losango
+          que nao entra em vaga nenhuma). Ele NASCE alinhado e NAO gira (o botao
+          de girar some para ele, ver poeGiroFlut). O paralelogramo ja nasce no
+          lado certo (esp do alvo): so precisa posicionar, sem tambem ter que virar. */
+    p.__ang = (v.f==="quad") ? (v.ang||0)
+            : normalG((v.ang||0) + [225,270,315][Math.floor(Math.random()*3)]);
+    p.__esp = (v.f==="par") ? (v.esp?1:0) : 0;
     giraPeca(p);
     ligaPeca(p);
     banca.appendChild(p);
@@ -1507,6 +1526,9 @@ function posGiroFlut(){
 function poeGiroFlut(){
   tiraGiroFlut();
   if(!tsel||tsel.className.indexOf("posta")>=0) return;
+  /* o quadrado e simetrico e sempre ang 0: girar so cria o losango que nao entra.
+     sem botao de girar para ele — nasce alinhado e so precisa ser posicionado. */
+  if(tsel.__f==="quad") return;
   tflut=el("button","gbtn",SETA_GIRO);
   tflut.setAttribute("aria-label","Girar a peça");
   tflut.onclick=function(ev){
@@ -1585,8 +1607,10 @@ function ligaPeca(p){
        crianca ficava com a peca na mao sem saber para onde ir.             */
     if(tbanca) tbanca.className="banca temsel";
     acendeVagas(); poeGiroFlut();
-    /* o botao de VIRAR so aparece no paralelogramo — e a voz explica por que */
-    if(tesp) tesp.className="bgira"+(p.__f==="par"?"":" escondido");
+    /* o paralelogramo agora NASCE no lado certo (esp do alvo): virar so estragaria
+       uma peca que ja esta correta. O botao de VIRAR fica escondido — a crianca so
+       gira e posiciona, como nas outras. */
+    if(tesp) tesp.className="bgira escondido";
     var k=temVoz(FORMA[p.__f].nome); if(k) tocaVoz(k);
   }
   p.onclick=function(){ if((new Date()).getTime()-tultimoToque<700) return;
