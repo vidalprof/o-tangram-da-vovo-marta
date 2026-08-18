@@ -1326,6 +1326,10 @@ var tultimoToque=0;
 
 function telaJogo(){
   limpa();
+  /* varre qualquer copia-fantasma orfa antes de montar a fase nova (a copia mora
+     no <body>, fora do #app, entao `limpa()` sozinho nao a alcanca). */
+  var _o=document.querySelectorAll(".tpeca.voa"),_oi;
+  for(_oi=0;_oi<_o.length;_oi++) if(_o[_oi].parentNode) _o[_oi].parentNode.removeChild(_o[_oi]);
   var fig=FIGURAS[figI];
   var t=el("div","tela"); setProg(t,Math.round((figI+1)*100/(FIGURAS.length+1)));
   /* ⚠️ a voz troca NA MESMA HORA que o texto. Este enunciado muda a cada
@@ -1572,7 +1576,9 @@ function dedoDemo(){
 function ligaPeca(p){
   function marca(){
     var n=document.getElementsByClassName("tpeca"),z;
-    for(z=0;z<n.length;z++) if(n[z].className.indexOf("posta")<0) n[z].className="tpeca";
+    /* pula a copia-fantasma do arrasto (`.voa`): reclassificar ela viraria uma
+       peca solta perdida no meio da tela (a duplicata que o Marcos via). */
+    for(z=0;z<n.length;z++) if(n[z].className.indexOf("posta")<0&&n[z].className.indexOf("voa")<0) n[z].className="tpeca";
     p.className="tpeca sel"; tsel=p; setTimeout(marcaQA,10);
     /* ⭐ acabamento: a mesa responde na hora — a vaga dela ACENDE e o botao de
        girar nasce colado na peca. Antes so o brilho da peca mudava, e a
@@ -1588,20 +1594,36 @@ function ligaPeca(p){
   if(window.PointerEvent){
     p.addEventListener("pointerdown",function(ev){
       if(p.className.indexOf("posta")>=0) return;
-      var r=p.getBoundingClientRect(), movido=false;
+      var r=p.getBoundingClientRect(), movido=false, g=null;
+      var x0=ev.clientX, y0=ev.clientY;
       try{ p.setPointerCapture(ev.pointerId); }catch(e){}
       marca(); arma();
-      var g=p.cloneNode(true); g.className="tpeca voa";
-      g.style.width=r.width+"px"; g.style.height=r.height+"px";
-      document.body.appendChild(g);
-      function poe(x,y){ g.style.left=(x-r.width/2)+"px"; g.style.top=(y-r.height/2)+"px"; }
-      poe(ev.clientX,ev.clientY);
-      function mv(e2){ movido=true; poe(e2.clientX,e2.clientY); realca(e2.clientX,e2.clientY); }
+      /* ⚠️ LICAO PAGA (ago/2026, o Marcos: "as pecas que nao sao triangulo
+         DUPLICAM quando clico"). A copia-fantasma (`tpeca voa`) que segue o dedo
+         nascia JA no pointerdown — ou seja, a cada CLIQUE, mesmo sem arrastar. Se
+         o `pointerup` nao chegasse (clique-fantasma do toque, captura perdida numa
+         rerenderizacao), a copia ficava orfa na tela: uma peca a mais. Conserto:
+         a copia so nasce quando a crianca REALMENTE arrasta (passou de 6px). Um
+         CLIQUE nunca mais cria copia — logo nunca mais deixa duplicata. E, por
+         garantia, todo pointerdown varre copias orfas que tenham sobrado. */
+      var o=document.querySelectorAll(".tpeca.voa"),oi;
+      for(oi=0;oi<o.length;oi++) if(o[oi].parentNode) o[oi].parentNode.removeChild(o[oi]);
+      function poe(x,y){ if(g){ g.style.left=(x-r.width/2)+"px"; g.style.top=(y-r.height/2)+"px"; } }
+      function criaClone(x,y){
+        if(g) return;
+        g=p.cloneNode(true); g.className="tpeca voa";
+        g.style.width=r.width+"px"; g.style.height=r.height+"px";
+        document.body.appendChild(g); poe(x,y);
+      }
+      function mv(e2){
+        if(!movido && Math.abs(e2.clientX-x0)+Math.abs(e2.clientY-y0)<6) return;
+        movido=true; criaClone(e2.clientX,e2.clientY); poe(e2.clientX,e2.clientY); realca(e2.clientX,e2.clientY);
+      }
       function up(e2){
         p.removeEventListener("pointermove",mv,false);
         p.removeEventListener("pointerup",up,false);
         p.removeEventListener("pointercancel",up,false);
-        if(g.parentNode) g.parentNode.removeChild(g);
+        if(g&&g.parentNode) g.parentNode.removeChild(g); g=null;
         limpaRealce();
         if(e2.pointerType!=="mouse") tultimoToque=(new Date()).getTime();
         if(movido) larga(p,e2.clientX,e2.clientY);
