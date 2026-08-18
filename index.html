@@ -1082,10 +1082,7 @@ function telaCapa(){limpa();var t=el("div","tela");var c=el("div","centro");
     c.appendChild(bc);
   }
   var b=el("button","btn",podeRetomar()?"Come&#231;ar do in&#237;cio":"Come&#231;ar");
-  b.onclick=function(){arma();sTap(); if(podeRetomar()) zeraProgresso(); telaQuem();};c.appendChild(b);
-  var bh=el("button","btn hist","A hist&#243;ria do Tangram");
-  bh.onclick=function(){ arma(); sTap(); telaHistoria(); };
-  c.appendChild(bh);
+  b.onclick=function(){arma();sTap(); if(podeRetomar()) zeraProgresso(); telaHistoria();};c.appendChild(b);
   t.appendChild(c);app.appendChild(t);}
 
 /* ============ A HISTÓRIA DO TANGRAM (curiosidade — leitura + narração) ============
@@ -1113,7 +1110,9 @@ function telaHistoria(){
   c.appendChild(txt);
   var bo=el("button","btn amarelo","Ouvir a hist&#243;ria"); bo.onclick=function(){ arma(); falar("tg_historia"); };
   c.appendChild(bo);
-  var bv=el("button","btn voltar","Voltar"); bv.style.marginTop="6px"; bv.onclick=function(){ arma(); sTap(); telaCapa(); };
+  /* A historia agora vem ANTES da atividade (ordem do Marcos, ago/2026): este
+     botao SEGUE para "quem vai jogar", nao volta para a capa. */
+  var bv=el("button","btn","Vamos jogar!"); bv.style.marginTop="6px"; bv.onclick=function(){ arma(); sTap(); telaQuem(); };
   c.appendChild(bv);
   t.appendChild(c); app.appendChild(t);
   falaDaTela("tg_historia");
