@@ -1,0 +1,354 @@
+[
+{
+"id": "tg_capa",
+"texto": "O tângram da vovó Marta. Toque em começar."
+},
+{
+"id": "tg_quem",
+"texto": "Quem vai jogar hoje? Escolha o seu crachá e escreva o seu nome."
+},
+{
+"id": "tg_abertura",
+"texto": "A caixa de tângram da vovó Marta caiu no chão da oficina e as sete peças se espalharam. Cada figura que você montar volta para a caixa. Vamos começar?"
+},
+{
+"id": "tg_intro_quadrado2",
+"texto": "Monte o quadrado. Duas peças iguais fazem um quadrado."
+},
+{
+"id": "tg_dica_quadrado2",
+"texto": "Duas peças iguais fazem um quadrado."
+},
+{
+"id": "tg_pronto_quadrado2",
+"texto": "O QUADRADO ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_casinha",
+"texto": "Monte a casinha. O triângulo médio vira o telhado."
+},
+{
+"id": "tg_dica_casinha",
+"texto": "O triângulo médio vira o telhado."
+},
+{
+"id": "tg_pronto_casinha",
+"texto": "A CASINHA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_porta",
+"texto": "Monte a casa com porta. Uma peça só entra virada. Use o botão de girar."
+},
+{
+"id": "tg_dica_porta",
+"texto": "Uma peça só entra virada. Use o botão de girar."
+},
+{
+"id": "tg_pronto_porta",
+"texto": "A CASA COM PORTA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_gato",
+"texto": "Monte o gato. Os dois triângulos pequenos viram as orelhas."
+},
+{
+"id": "tg_dica_gato",
+"texto": "Os dois triângulos pequenos viram as orelhas."
+},
+{
+"id": "tg_pronto_gato",
+"texto": "O GATO ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_casaj",
+"texto": "Monte a casa e o jardim. As grandes primeiro; as pequenas depois."
+},
+{
+"id": "tg_dica_casaj",
+"texto": "As grandes primeiro; as pequenas depois."
+},
+{
+"id": "tg_pronto_casaj",
+"texto": "A CASA E O JARDIM ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_torre",
+"texto": "Monte a torre. Um quadrado embaixo, e as peças sobem a torre."
+},
+{
+"id": "tg_dica_torre",
+"texto": "Um quadrado embaixo, e as peças sobem a torre."
+},
+{
+"id": "tg_pronto_torre",
+"texto": "A TORRE ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_peixe",
+"texto": "Monte o peixe. Dois meio-quadrados fazem um quadrado."
+},
+{
+"id": "tg_dica_peixe",
+"texto": "Dois meio-quadrados fazem um quadrado."
+},
+{
+"id": "tg_pronto_peixe",
+"texto": "O PEIXE ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_foguete",
+"texto": "Monte o foguete. Olhe o contorno antes de pegar a peça."
+},
+{
+"id": "tg_dica_foguete",
+"texto": "Olhe o contorno antes de pegar a peça."
+},
+{
+"id": "tg_pronto_foguete",
+"texto": "O FOGUETE ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_casa2",
+"texto": "Monte a casa grande. O paralelogramo tem lado direito e lado esquerdo."
+},
+{
+"id": "tg_dica_casa2",
+"texto": "O paralelogramo tem lado direito e lado esquerdo."
+},
+{
+"id": "tg_pronto_casa2",
+"texto": "A CASA GRANDE ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_desafio",
+"texto": "Monte o desafio da vovó. Tudo o que você aprendeu, de uma vez."
+},
+{
+"id": "tg_dica_desafio",
+"texto": "Tudo o que você aprendeu, de uma vez."
+},
+{
+"id": "tg_pronto_desafio",
+"texto": "O DESAFIO DA VOVÓ ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "op_1o4o7g8",
+"texto": "triângulo pequeno"
+},
+{
+"id": "op_jpgzrh",
+"texto": "triângulo médio"
+},
+{
+"id": "op_4uogek",
+"texto": "triângulo grande"
+},
+{
+"id": "op_1p8mjva",
+"texto": "quadrado"
+},
+{
+"id": "op_yk5unf",
+"texto": "paralelogramo"
+},
+{
+"id": "tg_fim",
+"texto": "Você montou todas as figuras e a caixa da vovó Marta está cheia de novo. Você é mestre do tângram!"
+},
+{
+"id": "tg_acerto1",
+"texto": "Isso!"
+},
+{
+"id": "tg_acerto2",
+"texto": "Muito bem!"
+},
+{
+"id": "tg_acerto3",
+"texto": "Perfeito!"
+},
+{
+"id": "tg_intro_caixa7",
+"texto": "Monte a caixa cheia. As sete peças voltam para a caixa da vovó."
+},
+{
+"id": "tg_dica_caixa7",
+"texto": "As sete peças voltam para a caixa da vovó."
+},
+{
+"id": "tg_pronto_caixa7",
+"texto": "A CAIXA CHEIA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_barco6",
+"texto": "Monte o barco. A vela grande e o casco embaixo."
+},
+{
+"id": "tg_dica_barco6",
+"texto": "A vela grande e o casco embaixo."
+},
+{
+"id": "tg_pronto_barco6",
+"texto": "O BARCO ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_gato7",
+"texto": "Monte o gato. Os dois triângulos pequenos viram as orelhas."
+},
+{
+"id": "tg_dica_gato7",
+"texto": "Os dois triângulos pequenos viram as orelhas."
+},
+{
+"id": "tg_pronto_gato7",
+"texto": "O GATO ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_bote",
+"texto": "Monte o bote. O triângulo grande virado vira o casco."
+},
+{
+"id": "tg_dica_bote",
+"texto": "O triângulo grande virado vira o casco."
+},
+{
+"id": "tg_pronto_bote",
+"texto": "O BOTE ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_vela2",
+"texto": "Monte o veleiro. Duas velas: uma grande e uma média."
+},
+{
+"id": "tg_dica_vela2",
+"texto": "Duas velas: uma grande e uma média."
+},
+{
+"id": "tg_pronto_vela2",
+"texto": "O VELEIRO ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_arvore",
+"texto": "Monte a árvore. O tronco é o quadrado; a copa, os triângulos."
+},
+{
+"id": "tg_dica_arvore",
+"texto": "O tronco é o quadrado; a copa, os triângulos."
+},
+{
+"id": "tg_pronto_arvore",
+"texto": "A ÁRVORE ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_chave",
+"texto": "Monte a chave. Peça pequena no lugar certo faz diferença."
+},
+{
+"id": "tg_dica_chave",
+"texto": "Peça pequena no lugar certo faz diferença."
+},
+{
+"id": "tg_pronto_chave",
+"texto": "A CHAVE ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_lanterna",
+"texto": "Monte a lanterna. Empilhar exige olhar de baixo para cima."
+},
+{
+"id": "tg_dica_lanterna",
+"texto": "Empilhar exige olhar de baixo para cima."
+},
+{
+"id": "tg_pronto_lanterna",
+"texto": "A LANTERNA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_pipa",
+"texto": "Monte a pipa. O paralelogramo vira a rabiola."
+},
+{
+"id": "tg_dica_pipa",
+"texto": "O paralelogramo vira a rabiola."
+},
+{
+"id": "tg_pronto_pipa",
+"texto": "A PIPA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_casaJ2",
+"texto": "Monte a casa e a cerca. A cerca é feita de peças pequenas."
+},
+{
+"id": "tg_dica_casaJ2",
+"texto": "A cerca é feita de peças pequenas."
+},
+{
+"id": "tg_pronto_casaJ2",
+"texto": "A CASA E A CERCA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_foguete2",
+"texto": "Monte o foguete grande. A última antes do desafio: use tudo."
+},
+{
+"id": "tg_dica_foguete2",
+"texto": "A última antes do desafio: use tudo."
+},
+{
+"id": "tg_pronto_foguete2",
+"texto": "O FOGUETE GRANDE ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_vovo",
+"texto": "Monte a vovó marta. A última: use tudo o que a caixa tem."
+},
+{
+"id": "tg_dica_vovo",
+"texto": "A última: use tudo o que a caixa tem."
+},
+{
+"id": "tg_pronto_vovo",
+"texto": "A VOVÓ MARTA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_casa",
+"texto": "Monte a casa. O telhado é feito com os dois triângulos grandes."
+},
+{
+"id": "tg_dica_casa",
+"texto": "O telhado é feito com os dois triângulos grandes."
+},
+{
+"id": "tg_pronto_casa",
+"texto": "A CASA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_sorvete",
+"texto": "Monte o sorvete. A casquinha aponta para baixo; a bola fica em cima."
+},
+{
+"id": "tg_dica_sorvete",
+"texto": "A casquinha aponta para baixo; a bola fica em cima."
+},
+{
+"id": "tg_pronto_sorvete",
+"texto": "O SORVETE ficou pronto! Todas as peças no lugar."
+},
+{
+"id": "tg_intro_montanha",
+"texto": "Monte a montanha. O triângulo grande é a encosta; as pequenas fecham o pé."
+},
+{
+"id": "tg_dica_montanha",
+"texto": "O triângulo grande é a encosta; as pequenas fecham o pé."
+},
+{
+"id": "tg_pronto_montanha",
+"texto": "A MONTANHA ficou pronta! Todas as peças no lugar."
+},
+{
+"id": "tg_historia",
+"texto": "O tângram nasceu há muito tempo, na China, faz mais de mil anos. Ele tem sete peças: cinco triângulos, um quadrado e um paralelogramo. Juntas, elas se chamam tans. Uma antiga lenda conta que um sábio deixou cair um azulejo quadrado. Ele se quebrou em sete pedaços, e, tentando juntar de novo, ele descobriu que dava para formar muitas figuras diferentes. Com as mesmas sete peças dá para montar milhares de figuras: um gato, uma casa, um barco, uma pessoa correndo. O tângram atravessou o mar de navio e virou um jogo amado no mundo inteiro. Dizem que até imperadores brincavam com ele! A regra é simples: use sempre as sete peças, sem uma em cima da outra. O resto é imaginação."
+}
+]
