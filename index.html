@@ -659,7 +659,7 @@ h1{font-size:34px;font-weight:700;color:#fff;margin:6px 0 2px;text-align:center;
    le esta linha de TODAS as atividades e reprova se o nome de um
    mascote alheio aparecer no texto desta.                            */
 var MASCOTE_NOME="Marta";
-var IMGS=["tg_marta_feliz","tg_cr1","tg_cr2","tg_cr3","tg_cr4","tg_cr5","tg_cr6","tg_caixa","tg_medalha","tg_fundo"];
+var IMGS=["tg_marta_feliz","tg_cr1","tg_cr2","tg_cr3","tg_cr4","tg_cr5","tg_cr6","tg_caixa","tg_medalha","tg_fundo","tg_historia"];
 var IMG={};(function(){var i;for(i=0;i<IMGS.length;i++){var im=new Image();im.src="img/"+IMGS[i]+".png";IMG[IMGS[i]]=im;}})();
 function imgEl(nome,cls){var e=document.createElement("img");if(cls)e.className=cls;e.src="img/"+nome+".png";e.alt="";e.draggable=false;return e;}
 /* ============ SOM (efeitos) ============ */
@@ -1083,7 +1083,41 @@ function telaCapa(){limpa();var t=el("div","tela");var c=el("div","centro");
   }
   var b=el("button","btn",podeRetomar()?"Come&#231;ar do in&#237;cio":"Come&#231;ar");
   b.onclick=function(){arma();sTap(); if(podeRetomar()) zeraProgresso(); telaQuem();};c.appendChild(b);
+  var bh=el("button","btn hist","A hist&#243;ria do Tangram");
+  bh.onclick=function(){ arma(); sTap(); telaHistoria(); };
+  c.appendChild(bh);
   t.appendChild(c);app.appendChild(t);}
+
+/* ============ A HISTÓRIA DO TANGRAM (curiosidade — leitura + narração) ============
+   Ordem do Marcos (ago/2026): uma tela com a história/origem do tangram, narrada e
+   para ler, com uma imagem de IA que combine. É o "gancho de curiosidade" da casa. */
+var HIST_HTML=
+  "<p>O <b>Tangram</b> nasceu h&#225; muito tempo, na <b>China</b>, faz mais de <b>mil anos</b>.</p>"+
+  "<p>Ele tem <b>7 pe&#231;as</b>: cinco tri&#226;ngulos, um quadrado e um paralelogramo. Juntas, elas se chamam <b>tans</b>.</p>"+
+  "<p>Uma antiga lenda conta que um sábio deixou cair um azulejo quadrado. Ele se quebrou em <b>7 peda&#231;os</b> — e, tentando juntar de novo, ele descobriu que dava para formar <b>muitas figuras diferentes</b>.</p>"+
+  "<p>Com as mesmas 7 pe&#231;as d&#225; para montar <b>milhares</b> de figuras: um gato, uma casa, um barco, uma pessoa correndo...</p>"+
+  "<p>O Tangram atravessou o mar de <b>navio</b> e virou um jogo amado no mundo inteiro. Dizem que at&#233; imperadores brincavam com ele!</p>"+
+  "<p>A regra &#233; simples: use <b>sempre as 7 pe&#231;as</b>, sem uma em cima da outra. O resto &#233; imagina&#231;&#227;o.</p>";
+function telaHistoria(){
+  limpa();
+  var t=el("div","tela"); var c=el("div","centro");
+  c.appendChild(el("div","selo","A HIST&#211;RIA DO TANGRAM"));
+  var im=imgEl("tg_historia");
+  im.style.cssText="width:100%;max-width:300px;border-radius:16px;margin:2px auto 8px;display:block;-webkit-box-shadow:0 6px 16px rgba(0,0,0,.25);box-shadow:0 6px 16px rgba(0,0,0,.25)";
+  c.appendChild(im);
+  var txt=el("div","histtxt",HIST_HTML);
+  /* ⚠️ o `.centro` desta atividade e TRANSPARENTE: o texto flutuava sobre a
+     oficina de fundo e sumia. A tela de leitura precisa de MESA PROPRIA — cartao
+     creme opaco com tinta escura, sempre legivel. */
+  txt.style.cssText="text-align:left;max-width:340px;max-height:38vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 16px;line-height:1.5;font-size:16px;color:var(--texto);background:var(--card);border:1px solid var(--linha);border-radius:16px;-webkit-box-shadow:0 6px 16px rgba(30,25,10,.28);box-shadow:0 6px 16px rgba(30,25,10,.28)";
+  c.appendChild(txt);
+  var bo=el("button","btn amarelo","Ouvir a hist&#243;ria"); bo.onclick=function(){ arma(); falar("tg_historia"); };
+  c.appendChild(bo);
+  var bv=el("button","btn voltar","Voltar"); bv.style.marginTop="6px"; bv.onclick=function(){ arma(); sTap(); telaCapa(); };
+  c.appendChild(bv);
+  t.appendChild(c); app.appendChild(t);
+  falaDaTela("tg_historia");
+}
 /* ============ 2) QUEM VAI JOGAR ============ */
 function telaQuem(){limpa();var t=el("div","tela");var c=el("div","centro");
   c.appendChild(el("div","balao","<b>Quem vai jogar</b> hoje?"));
