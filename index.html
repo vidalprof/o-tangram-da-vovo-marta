@@ -1045,20 +1045,19 @@ function poeVozes(){
    progresso: e so um atalho para abrir a fase.                             */
 function chave(s){ return (s||"").replace(/\s+/g," ").replace(/^ | $/g,"").toLowerCase(); }
 var CODIGO_MESTRE="1275@";
-var FASES_MESTRE=[["telaJogo","1. O JOGO DO TANGRAM"],["telaFim","2. telaFim"]];
 function telaMestre(){
   limpa();var t=el("div","tela");var c=el("div","centro");
   c.appendChild(el("div","selo","MODO PROFESSOR"));
-  c.appendChild(el("div","balao semzap","Toque na fase que voc&#234; quer abrir. Isto n&#227;o aparece para o aluno."));
+  c.appendChild(el("div","balao semzap","Toque na <b>figura</b> que voc&#234; quer abrir e jogar. As com &#9733; s&#227;o as mais dif&#237;ceis (animais, sem a ajuda que pisca). Isto n&#227;o aparece para o aluno."));
   var g=el("div","mestre"),i;
-  for(i=0;i<FASES_MESTRE.length;i++){(function(par){
-    var b=el("div","mbt",par[1]);
-    b.onclick=function(){ arma(); sTap();
-      var f=window[par[0]];
-      if(typeof f==="function"){ try{ f(); }catch(e){ mostraDica("Esta fase pediu algo que ainda n&#227;o foi feito nesta sess&#227;o."); } }
-    };
+  /* ⭐ lista TODAS as figuras (o professor joga QUALQUER uma). Pedido do Marcos. */
+  for(i=0;i<FIGURAS.length;i++){(function(idx){
+    var f=FIGURAS[idx];
+    var b=el("div","mbt",(idx+1)+". "+f.nome+(f.dificil?" &#9733;":""));
+    b.onclick=function(){ arma(); sTap(); figI=idx; try{ telaJogo(); }catch(e){ mostraDica("Erro ao abrir esta figura."); } };
     g.appendChild(b);
-  })(FASES_MESTRE[i]);}
+  })(i);}
+  (function(){ var b=el("div","mbt","Ver a tela final"); b.onclick=function(){ arma(); sTap(); try{ telaFim(); }catch(e){ mostraDica("Sem dados para a tela final ainda."); } }; g.appendChild(b); })();
   c.appendChild(g);
   var v=el("button","btn peq","Voltar ao come&#231;o");v.style.marginTop="12px";
   v.onclick=function(){ arma(); sTap(); telaCapa(); };
