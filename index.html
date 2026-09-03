@@ -1045,6 +1045,9 @@ function poeVozes(){
    progresso: e so um atalho para abrir a fase.                             */
 function chave(s){ return (s||"").replace(/\s+/g," ").replace(/^ | $/g,"").toLowerCase(); }
 var CODIGO_MESTRE="1275@";
+/* lista das TELAS (para o marcaFase do boot embrulhar) — o menu do professor
+   agora lista as FIGURAS direto, mas o IIFE de boot ainda usa esta lista. */
+var FASES_MESTRE=[["telaJogo",""],["telaFim",""]];
 function telaMestre(){
   limpa();var t=el("div","tela");var c=el("div","centro");
   c.appendChild(el("div","selo","MODO PROFESSOR"));
