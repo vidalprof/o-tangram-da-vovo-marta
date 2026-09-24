@@ -1,0 +1,15 @@
+{
+ "ano": "5",
+ "componente": "Matemática",
+ "rede": "Blumenau",
+ "documento": "_curriculo/blumenau.txt",
+ "_sobre_esta_declaracao": "Atividade de MOTOR (nao e caderno de folha viva), entao nao ha campo `folhas`. Quem le este arquivo e o painel, para dar ao professor o tema e o objetivo prontos para colar no planejamento. As citacoes foram transcritas do PDF da rede, que vem em tabela de duas colunas com a frase quebrada em varias linhas, e conferidas palavra a palavra contra o documento.",
+ "objetivos": [
+  {
+   "objetivo": "Montar figuras com as sete peças, comparando forma e tamanho",
+   "pratica": "Geometria",
+   "objeto": "Figuras geométricas planas: congruência",
+   "habilidade": "HABILIDADE: \"Reconhecer figuras congruentes, usando sobreposição e desenhos em malhas quadriculadas ou triangulares, incluindo o uso de tecnologias digitais.\""
+  }
+ ]
+}
